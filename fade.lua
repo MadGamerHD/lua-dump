@@ -15,12 +15,11 @@ global function Taxi()
 	local sid0009 = FindNodeByPartialName("Anim_DRW_E2_SID0009")
 	local sid0012 = FindNodeByPartialName("Anim_DRW_E2_SID0012")
 	local timeline = FindNodeByName("car_crash_time")
-
-	SayPrep("skip", "")
+	local explore_music = FindNodeByName("explore_music")
 
 	ClearCallbacks() 
 	timeline:PauseAt(32.99)
-	StopMusic();
+	explore_music:StopTrigger()
 	ShowLetterBox()
 
 	doctor:SetBehaviour("wait")	
@@ -35,15 +34,11 @@ global function Taxi()
 	doctor:SetTarget(doc_push)
 	doctor:SetMaxSpeed(2)
 	doctor:SetBehaviour("move")
-	
-	--CUT SCENE 3
-	--EXT. RUINED LONDON -- DAY
-	--Doctor assesses the taxi.
---		doctor::SID_0018:This looks like it could smash through that barrier.
-	doctor:PlayAnimBlendOut(sid0009,1,2,1)
---		doctor::SID_0009:Amy, can you give me a hand?
-	doctor:PlayAnimBlendOut(doctor_idle2,1,1,1)
---		amy::SID_0007:Sure
+--		doctor::SID_0018:This looks like it could break that barrier. 
+	doctor:PlayAnim(sid0009,1,2)
+--		doctor::SID_0009:Amy, could you help me please?
+	doctor:PlayAnim(doctor_idle2,1,1)
+--		amy::SID_0007:OK. Coming!
 	amy:SetTarget(amy_push_loc)
 	amy:SetMoveTime(1.5)
 	amy:SetBehaviour("move")
@@ -59,12 +54,11 @@ global function Taxi()
 	Wait(5)	
 	--Bang!
 	--play particles
-	doctor:PlayAnimBlendOut(doc_idle1,1,0.5,0.5)
-	amy:PlayAnimBlendOut(amy_idle1,1,0.5,0.5)
+	doctor:PlayAnim(doc_idle1,1,0.5)
+	amy:PlayAnim(amy_idle1,1,0.5)
 	
 	Wait(4)
-	doctor:PlayAnimBlendOut(sid0012,1,1,1)
-	--As The Doctor and Amy stand clear, the taxi rolls down the slope and crashes through the barricade.	
+	doctor:PlayAnim(sid0012,1,1)
 --		doctor::SID_0012:Well, not exactly elegant. But it did the job.
 	
 	--walk down slope
@@ -100,9 +94,8 @@ global function Entrance()
 
 	
 	Wait (1)
-	--As they approache the opening. Darkness beyond.
 --		amy::SID_0004:It's dark down there. When I said I wanted to meet the Beatles I meant the band, not the bugs.
-	doctor:PlayAnimBlendOut(sid0010,1,1,1)	
+	doctor:PlayAnim(sid0010,1,1)	
 --		doctor::SID_0010:Or you can stay up here and meet the Daleks. But they're more heavy metal.
 	--add fear and set focus 
 	Wait(4)
@@ -127,21 +120,17 @@ global function Underground()
 	local amy_pos1 = FindNodeByName ("station_start_amy")
 	local doc_pos2 = FindNodeByName("station_end_doc")
 	local amy_pos2 = FindNodeByName("station_end_amy")
-	local timeline = FindNodeByName("car_crash_time")
-	local subwayArea = FindNodeByName("EmArea_Uid_EM_AREA_Station:0")
 	local traf_amb = FindNodeByName("traf_amb")
 	local sub_amb = FindNodeByName("sub_amb")
+	local timeline = FindNodeByName("car_crash_time")
 
+	timeline:PauseAt(56)
 	traf_amb:StopTrigger()	
 	sub_amb:Trigger()
-	timeline:PauseAt(56)
 
 	doctor:SetBehaviour("wait")	
---	doctor:GetTransform():SetNodeParent( subwayArea )
 	doctor:Teleport(doc_pos1)
-	
 	amy:SetBehaviour("wait")
---	amy:GetTransform():SetNodeParent( subwayArea )
 	amy:Teleport(amy_pos1)
 
 	doctor:SetTarget(doc_pos2)
@@ -155,19 +144,21 @@ global function Underground()
 	HideFade()
 
 	Wait(1)
-	--CUT TO:
-	--INT. UNDERGROUND TUNNEL -- DAY
---		doctor::SID_0499:The platform must be up ahead. But we're going to have to get through that gate to get to it.
+	--no audio
+--		doctor::At last the platform must be just up ahead.
 	
-	Wait(2.5)
+	Wait(0.5)
+	ShowFade()
+	Wait(1)
 	timeline:ClearPause()
 end
 
 global function End()
 	local doctor = GetActor("doctor")
 	local amy = GetActor("amy")
-	local interact_barrier = FindNodeByName("interactable_barrier")
+	local teleport_trigger = FindNodeByName("down_to_station")
 
+	HideFade()
 	HideLetterBox()
 	
 	doctor:SetBehaviour("pc")
@@ -176,8 +167,5 @@ global function End()
 	amy:EnablePhysics()
 	amy:SetTarget(doctor)
 
-	interact_barrier:StopTrigger()
-	SetGlobalObjectiveState("Dalek_1_1_1", 3)
-	SetGlobalObjectiveState("Dalek_1_1_2", 3)
-	SetGlobalObjectiveState("Dalek_1_1_3", 2)
+	teleport_trigger:Wake()
 end

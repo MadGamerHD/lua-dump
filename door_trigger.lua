@@ -15,8 +15,8 @@ global function Trigger()
 		ShowLetterBox()
 		timeline:Trigger()	
 		Wait(1)
---		doctor::Watch out!
---		doctor::Tripwires and explosives we need to be careful.
+		--doctor::Watch out!
+		--doctor::Tripwires and explosives we need to be careful.
 		doctor:SetBehaviour("pc")
 		HideLetterBox()
 		
