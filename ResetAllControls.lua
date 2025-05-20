@@ -11,8 +11,53 @@ local Console3Interact = FindNodeByName("Console3Interactable")
 local Console4Interact = FindNodeByName("Console4Interactable")
 local Console5Interact = FindNodeByName("Console5Interactable")
 local Console6Interact = FindNodeByName("Console6Interactable")
-
+global script_node
 local mode2D = 0
+
+global function DoHintCheck()
+	local hint = QueryObjective(0)   
+	local hint1 = QueryObjective(1)  
+
+	--wake red levers
+	if(hint == "hint_1_1") then
+		if (Console3Objects.script.Object3State == 0) then
+			Console3Interact:Wake()
+		end
+		
+		if (Console5Objects.script.Object5State == 0) then
+			Console5Interact:Wake()
+		end
+	end
+
+	--wake levers up
+	if(hint1 == "hint_1_2_2") then
+		Console6Interact:Wake() 
+	end
+	
+	--laser socket open
+	if(hint1 == "hint_1_4_1" )then
+		FindNodeByName("Object_5_1"):Wake()
+	end
+	
+	--ready to fire
+	if(hint1 == "hint_1_4_2") then
+		Console5Interact:Wake() 
+	end
+end
+
+global function FlashLevers()
+	StartHighlight()
+	Wait(0.4)
+	StopHighlight()
+	Wait(0.2)
+	StartHighlight()
+	Wait(0.4)
+	StopHighlight()
+	Wait(0.2)
+	StartHighlight()
+	Wait(0.4)
+	StopHighlight()
+end
 
 global function TurnOffAllConsoles()
 	Console1Interact:Sleep()
@@ -21,52 +66,32 @@ global function TurnOffAllConsoles()
         Console4Interact:Sleep()
         Console5Interact:Sleep() 
         Console6Interact:Sleep() 
- end
- 
- global function DoHintCheck()
- 	local hint = QueryObjective(0) 
- 	if (FindNodeByName("CommonScripts").script.DoctorIsPlayer())then
- 		TurnOffAllConsoles()
-		--voltemeter on to be powered up
- 		if (hint == "hint_2_3_2")then
- 			FindNodeByName("Object_6_3"):Wake()
- 		end
- 	end
-	print("HintCheck","\n")
-	if(hint == "hint_2_1_1" or hint == "hint_2_1_2") then
-		TurnOffAllConsoles()
-		--date bank on for inspection
-		if (Console6Objects.script.Object7State == 0) then
-			print("wake_7_1","\n")
-			FindNodeByName("Object_7_1"):Wake()
-		end
-		--voltemeter on for inspection
-		if (Console6Objects.script.Object3State == 0) then
-			print("Waking 6_3","\n")
-			FindNodeByName("Object_6_3"):Wake()		
-		end
-	end
-end     
- 
+end
+       
 global function TurnOnAllConsoles()
---	Console1Interact:Wake()
---        Console2Interact:Wake()
---	Console3Interact:Wake() 
---        Console4Interact:Wake()
---        Console5Interact:Wake() 
---        Console6Interact:Wake() 
+	Console1Interact:Sleep()
+        Console2Interact:Sleep()
+	Console3Interact:Sleep() 
+        Console4Interact:Sleep()
+        Console5Interact:Sleep()
+        Console6Interact:Sleep() 
         DoHintCheck()
- end
+end
  
- global function TurnOffAllControls()
+global function TurnOffAllControls()
 	Console1Objects.script.TurnOffAllControls()
 	Console2Objects.script.TurnOffAllControls()
 	Console3Objects.script.TurnOffAllControls()
 	Console4Objects.script.TurnOffAllControls()
 	Console5Objects.script.TurnOffAllControls()
 	Console6Objects.script.TurnOffAllControls()
- end
- 
+end
+
+global function ResetConsoles()
+	TurnOffAllControls()
+	TurnOnAllConsoles()
+end
+
 global function ResetAllControls()
 	Console1Objects.script.ResetObjects()
 	Console2Objects.script.ResetObjects()
@@ -74,40 +99,39 @@ global function ResetAllControls()
 	Console4Objects.script.ResetObjects()
 	Console5Objects.script.ResetObjects()
 	Console6Objects.script.ResetObjects()
+end
+
+global function TurnOffInterface()
+	StopHighlight()
+	Stop2dMode()
+	mode2D = 0
+end
+
+global function TurnOnInterface()
+	Start2dMode()
+	mode2D = 1
+end
+
+global function TurnOffControls()
+	local amy = GetActor("amy")
+
+	Stop2dMode()	
+	
+	Wait(0.1)
+	StopHighlight()
+	StopPOIWait()
+	ResetPlayerCamera()
+	mode2D = 0
 	TurnOffAllControls()
 	TurnOnAllConsoles()
+	
+	amy:SetBehaviour("pc")
 end
 
 global function InteractDone()
-	local doctor = GetActor("doctor")
-	local amy = GetActor("amy")
-	
-	if (FindNodeByName("CommonScripts").script.DoctorIsPlayer()) then
-		if (mode2D == 1) then
-			StopPOIWait()
-			ResetPlayerCamera()
-			Stop2dMode()
-			mode2D = 0
-			TurnOffAllControls()
-			TurnOnAllConsoles()	
-		end
-
-		FindNodeByName("CombinationScriptControl").script.CheckCombination()
-		
-		doctor:SetBehaviour("pc")
-	else
-		StopPOIWait()
-		ResetPlayerCamera()
-		Stop2dMode()
-		mode2D = 0
-		TurnOffAllControls()
-		TurnOnAllConsoles()
-		
-		FindNodeByName("CombinationScriptControl").script.CheckCombination()
-		
-		amy:SetBehaviour("pc")
-	end
+	FindNodeByName("CombinationScriptControl").script.CheckCombination()
 end
+
 global function InteractStart()
 	EnableActorCameraCollision()
 	
@@ -119,7 +143,18 @@ global function InteractStart()
 	end
 end
 
+global function MoveLeft()
+end
+
+global function MoveAway()
+	TurnOffControls()
+end
+
+global function MoveRight()
+end
+
 global function Init()
 	WaitFrame()
-	ResetAllControls()
+	ResetAllControls()	
+	ResetConsoles()
 end

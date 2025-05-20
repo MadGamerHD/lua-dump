@@ -21,15 +21,15 @@ global function DoDoorBlockedRefusal()
 	if door_blocked_vo_index == 0 then
 		--*NEW
 		--VO
-		doctor::SID_2679:There's only ocean behind this door now.
+		doctor::SID_2668:There's only ocean behind this door now.
 	elseif door_blocked_vo_index == 1 then
 		--*NEW
 		--VO
-		doctor::SID_2680:Opening this door without a diver suit would be a bad idea.
+		doctor::SID_2669:Opening this door without a diver suit would be a bad idea.
 	elseif door_blocked_vo_index == 2 then
 		--*NEW
 		--VO
-		doctor::SID_2681:No, the door keeps out the water. And I like breathing.
+		doctor::SID_2670:No, the door keeps out the water. And I like breathing.
 	end
 	
 	door_blocked_vo_index = door_blocked_vo_index + 1
@@ -44,15 +44,15 @@ global function DoDoorAlreadyOpenRefusal()
 	if door_open_vo_index == 0 then
 		--*NEW
 		--VO
-		doctor::SID_2682:I could lock the door again but that wouldn't be much help right now.
+		doctor::SID_2671:I could lock the door again but that wouldn't be much help right now.
 	elseif door_open_vo_index == 1 then
 		--*NEW
 		--VO
-		doctor::SID_2683:I'm glad I don't have to remember any more codes for this door.
+		doctor::SID_2672:I'm glad I don't have to remember any more codes for this door.
 	elseif door_open_vo_index == 2 then
 		--*NEW
 		--VO
-		doctor::SID_2684:It's already open.
+		doctor::SID_2673:It's already open.
 	end
 	
 	door_open_vo_index = door_open_vo_index + 1
@@ -60,5 +60,3 @@ global function DoDoorAlreadyOpenRefusal()
 		door_open_vo_index = 0
 	end
 end
-
-

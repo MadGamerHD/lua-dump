@@ -1,28 +1,35 @@
---act 2/3 unique script
+global script_node
+global FirstTime 
+
+FirstTime = 0
 
 global function Trigger()
 	local amy = GetActor("amy")
+	local DrawingRoom = FindNodeByTag("DrawingRoom")
 	local Waypoint1 = FindNodeByName("DrawingRoomMoveToLoc")
 	local Waypoint2 = FindNodeByName("DrawingRoomEntryLoc")
-	local DrawingRoom = FindNodeByTag("DrawingRoom")
+	local Vo_Cut = FindNodeByName("DR_Intro")
 
 	amy:SetTarget(Waypoint1)
-	amy:SetMoveTime(1)
 	amy:SetBehaviour("move")
-
+	
 	ShowFade()
 
 	Wait(1)
 	amy:SetBehaviour("wait")
-	amy:GetTransform():SetNodeParent(DrawingRoom)
-	amy:Teleport(Waypoint2)
+	amy:GetTransform():SetNodeParent(DrawingRoom)	
 
-	Wait(1)
-	HideFade()
-
-	if GetAct() == 2 then
-		amy:FadeGlowDown(0)
+	if (FirstTime == 0) then
+		FirstTime = 1
+		
+		Wait(1)
+		HideFade()
+		Vo_Cut:Trigger()
+	else
+		amy:Teleport(Waypoint2)
+		
+		Wait(1)
+		HideFade()
+		amy:SetBehaviour("pc")
 	end
-
-	amy:SetBehaviour("pc")
 end

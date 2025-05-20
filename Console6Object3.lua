@@ -14,7 +14,7 @@ global function MovetoExamineAndSay()
 	voltprop:PlayAnim(FindNodeByTag("VoltHigh"),1,0)
 	--VO 
 	--On the voltmeter, it shows that there's no power left. Then it shows full power. Then empty. Then full.
-		doctor::SID_2304:It's caught between two possibilities. That's not good.
+		--doctor::SID_2304:It's caught between two possibilities. That's not good.
 	
 	Wait(1)
 	FindNodeByName("VoltMeterStart"):Sleep()
@@ -37,9 +37,6 @@ global function MovetoExamineAndSay()
 	FindNodeByName("AllControlsScript").script.InteractDone()
 	FindNodeByName("VoltMeterStop"):Sleep()
 	FindNodeByName("Object_6_3"):Sleep()
-	
-	--Find the Voltmeter (done)
-	SetGlobalObjectiveState("Objective_2_1_2", 3)
 end
 
 global function Interact()
@@ -50,23 +47,39 @@ global function Interact()
 	
 	SayPrep("skip","")
 	
-	print(hint)
-	
-	if (hint == "hint_2_3_2") then
-		--VO 
-		--The player trys to use the voltmeters without an oscillator
-			doctor::SID_2306:Without an Oscillator, I won't be able to project the Tachyon Feedback Loop into Amy's time.	
-	elseif doctor:IsInventoryItem(Osc) then
-		--VO 
-		--The player trys to examine the voltmeters but has the oscillator in their inv
-			doctor::SID_2305:Perhaps I should use the Oscillator?
-	elseif (FindNodeByName("Console6InteractableScript").script.Object3State == 0 and (hint == "hint_2_1_1" or hint == "hint_2_1_2")) then
-		ShowLetterBox()
+	if( hint == "hint_2_2_4" )then
+		if ( doctor:IsInventoryItem(Osc) ) then
+			--VO 
+			--The player trys to examine the voltmeters but has the oscillator in thier inv
+				--doctor::SID_2305:Perhaps I should use the Oscillator?
+		else
+			--VO 
+			--The player trys to use the voltmeters without an oscillator
+				--doctor::SID_2306:Without an oscillator, I won't be able to project the Tachyon Feedback Loop into Amy’s time.	
+		end
+	else
+		--Voltmeters
+		if (FindNodeByName("Console6InteractableScript").script.Object3State == 0 and (hint == "hint_2_1_1" or hint == "hint_2_1_2")) then
+			ShowLetterBox()
 			
-		doctor:SetMoveTime(0.5)
-		doctor:SetTarget(FindNodeByName("Stand6"))
-		doctor:SetCallback(script_node, "MovetoExamineAndSay")
-		doctor:SetBehaviour("move")
+			doctor:SetMoveTime(0.5)
+			doctor:SetTarget(FindNodeByName("Stand6"))
+			doctor:SetCallback(script_node, "MovetoExamineAndSay")
+			doctor:SetBehaviour("move")
+		else
+			if(FindNodeByName("CommonScripts").script.DoctorIsPlayer()) then
+				--VO 
+				--Console Control Text Modified description to reflectr the plot slightly more, this is used to transfer/inspect power
+					--doctor::SID_2121:TARDIS display dials- From left to right, these display engine cycles per second, engine temperature, time rotor speed, and power levels.
+			else
+				--VO 
+				--Console Control Text
+					--amy::SID_2122:Hmm, display dials. I'm going to ignore those, unless they go into the danger area, then I'll start pressing buttons.
+			end
+		
+			FindNodeByName("Console6InteractableScript").script.Object3State = 1
+			FindNodeByName("AllControlsScript").script.InteractDone()
+		end
 	end
 end
 
@@ -84,8 +97,8 @@ global function MoveAndUse()
 	sonic_script.script.PlayAnim("EM_ANIMATOR_sonic_INGAME_Anim_SON_SonicUseFromIdle", 1.25)
         MinigameManager:SetMiniGameID("MINI_BEACON01")
         BeaconMinigame:GenerateNewWave()
-        MinigameManager:StartMiniGame(BeaconMinigame)
         MinigameManager:SetCallback(script_node, "MinigameComplete")
+        MinigameManager:StartMiniGame(BeaconMinigame)
 end
 
 global function Use()
@@ -95,11 +108,11 @@ global function Use()
 
 	SayPrep("skip","")
 
-	if doctor:IsUsingInventoryItem(Osc) then
+	if( hint == "hint_2_2_4" and doctor:IsUsingInventoryItem(Osc)) then
 		doctor:SetMoveTime(0.5)
 		doctor:SetTarget(FindNodeByName("Stand6"))
-		doctor:SetBehaviour("move")
 		doctor:SetCallback(script_node, "MoveAndUse")
+		doctor:SetBehaviour("move")
 	else
 		FindNodeByName("CommonScripts").script.RandomRefusal()
 	end

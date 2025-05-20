@@ -1,221 +1,157 @@
-global function ExportCutscenes()
+global script_node
+
+global function xPerformCutscene1()
+	local doctor = GetActor("doctor")
+	local amy = GetActor("amy")
+
+	--ACT ONE
+	--PER-TITLE SEQUENCE
+	--CUT SCENE 1
+	--INT. POSEIDON. SUB-AQUATIC TUNNEL 1 -- NIGHT
+	--CRASH INTO THE ACTION.
+	--ALARMS roaring. RED EMERGENCY LIGHTS flashing
+	--As THE DOCTOR and AMY run for their lives.
+	--They're in a giant transparent tube that runs along the ocean floor. Beyond the glass walls - the ocean and the seabed. Out there are cultivated prairies and heavy-duty agricultural gear - but we'll only catch the briefest glimpse of all this...
+	--As Amy throws a panicked look outside -
+		amy::SID_1587:It's coming at us again!
+	--What gets our attention out there is the huge shadowy creature that's headed like a gigantic torpedo for the glass tube.
+		doctor::SID_1588:That glass won't take much more punishment!
+	--And the gigantic shadow is hurtling closer - and now we can see what it is.
+	--A 50ft long SHARK MONSTER. Terrifying, armour plated, with two tails and snapping savage jaws, not of this world - this thing would eat the Amity shark for dinner. 
+	--And it's got its eye on the Doctor and Amy.
+	--As it hits the glass like a torpedo.
+	--The tube shakes.
+		amy::SID_1589:Doctor!
+	-- - A crack in the glass.
+		doctor::SID_1590:Quickly!
+	--As they reach an airlock door.
+	--Outside, with a flick of its tail, the shark monster moves off - 
+	--The Doctor hits the OPEN button on the airlock - 
+	--And the shark monster is turning - heading for the tunnel again. Another attack.
+	-- - The airlock doesn't open. 
+	--The Doctor sees the shark monster hurtling towards them again.
+		doctor::SID_1591:Just when I thought it was safe to go back in the water!
+	--And the shark monster is looming large.
+	--The Doctor has the SONIC SCREWDRIVER out. 
+	--Zaps the lock. The airlock opens.
+	--The shark monster hits the glass again. 
+	--The crack starts to spread. The glass fracturing. About to give.
+	--The Doctor and Amy leap through the airlock door. Slam it shut behind them.
+		doctor::SID_2687:Argh!
+		amy::SID_2688:Argh!
+	--Behind them - the sound of the tunnel imploding, filling with water.
+	--But the Doctor and Amy have their backs to the airlock door. 
+	--They look at each other - and laugh. Total relief.
+		doctor::SID_2689:Ha ha ha.
+		amy::SID_2702:Ha ha ha.
+	--As they slide down the door into a sitting position - alongside them, glass tubes along the airlock door filling with water as the devastated tunnel is swamped by the ocean. The Doctor notes, grim.
+		doctor::SID_1592:Oh, that is not good.
+		amy::SID_1593:What?
+	--And we see that they are in another length of glass tunnel, just like that they've just escaped.
+	--Outside they see debris from the smashed tunnel floats past outside. 
+		doctor::SID_1594:The tunnel. I'm afraid it isn't there any more. Which means...
+		amy::SID_1595:We can't get back to the TARDIS.
+	-- - and then they see the SHARK MONSTER slides past outside, its eye on them.
+	--CUT TO:
+	--TITLES
+
+end
+
+global function xPerformCutscene2()
+	local doctor = GetActor("doctor")
+	local amy = GetActor("amy")
+
+	--CUT SCENE 2
+	--INT. POSEIDON. SUB-AQUATIC TUNNEL 2 -- NIGHT
+	--CLOSE-UP ON THE TARDIS MATERIALIZING.
+	--ON SCREEN CAPTION - FIVE MINUTES EARLIER
+	--THE DOCTOR (O.S.)
+		doctor::SID_1596:Here we are. London after the Great Flood of the Twenty Third Century.
+	--The TARDIS doors fly open. And The Doctor steps out. Clocks his surroundings.
+		doctor::SID_1597:Oh.
+	--The TARDIS has materialized in the glass tunnel. Around them the ocean. Above them fathoms and fathoms of water. The ocean floor.
+	--Amy joins him. Bewildered and amused.
+		amy::SID_1598:It is definitely an umbrella day.
+		doctor::SID_1599:Maybe a few miles to the left of London. 
+	--Amy is fascinated. Touches the side of the glass tunnel.
+		amy::SID_1600:How many, exactly?
+	--The Doctor takes it all in, equally fascinated.
+		doctor::SID_1601:After the ice caps melted London became an island all on its own. I'd say about a thousand miles to the left. And south. A bit. 
+		amy::SID_1602:How long have you been running around in that TARDIS? And you still can't fly straight!
+		doctor::SID_1603:Flying a TARDIS isn't like riding a bike, you know. There are more pedals, for a start!
+	--And the Doctor heads off down the tunnel - it stretches on and on, and interconnects with other tunnels. 
+	--Amy is taking in the wonders. Then sees the Doctor is on the move. She runs after him.
+		amy::SID_1604:So what is this place?
+	--The Doctor turns back to her smiles.
+		doctor::SID_1605:Sub-aquatic community.
+	--Raises his arms, expansively.
+		doctor::SID_1606:Isn't it amazing?!
+
+	--CUT TO:
+	--EXT. POSEIDON COMMUNITY -- NIGHT
+	--Elevated shot (MATTE) of the Poseideon Community - an extended ocean floor base of large glass installations surrounded by a network of glass tunnels (the Doctor and Amy are in one of them). Poseidon works the marine prairies around it and the mineral mine that is also in evidence. The Poseidon illuminations give the whole place an eerie beauty. But there is no sign of life in the fields or around the machinery.
+	--As the CAMERA closes on the community...
+	--THE DOCTOR (V.O.)
+		doctor::SID_1607:When the oceans rose 75 per cent of Earth's landmass drowned. Humanity built its own new islands, and moved on to the ocean bottom to farm and mine for minerals. 
+	--And the CAMERA closes on one specific installation - Poseidon 8.
+
+	--CUT TO:
+	--INT. POSEIDON. SUB-AQUATIC TUNNEL 2 -- NIGHT
+	--THE DOCTOR and AMY have come to an intersection of tunnels - each one with an airlock.
+		doctor::SID_1608:You're a resourceful lot, you humans. That's why I love you! You'll move in anywhere. A bit like hermit crabs. 
+		amy::SID_1609:Crabs? Yeah, thanks a lot.
+	--The Doctor is studying a plan on the wall. Headed POSEIDON, it shows the layout of the whole community.
+		doctor::SID_1610:Poseidon Eight. That's the closest. Come on. Be rude not to say hello.
+	--The Doctor pushes a button on the airlock. It opens and they go though.
+end
+
+global function xPerformCutscene3()
 	local doctor = GetActor("doctor")
 	local amy = GetActor("amy")
 	local flanagan = GetActor("flanagan")
-	local oswald = GetActor("oswald")
-	local dana = GetActor("dana")
-	local jones = GetActor("jones")
 
+	--CUT SCENE 3
+	--INT. POSEIDON. SUB AQUATIC TUNNEL 1 -- NIGHT
+	--The SHARK MONSTER is hurtling towards the tunnel again - as THE DOCTOR and AMY rush to the next airlock.
+		amy::SID_1611:What is that thing? It's not like any shark I ever saw.
+		doctor::SID_1612:Of course not. It's not a shark... and it's not from Earth.
+	--As he pulls out the SONIC SCREWDRIVER. Zaps the airlock.
+	--As the creature hits the glass. As the shark monster comes around for another attack - 
+	--And the airlock door suddenly flies open - revealing a man - MARTIN FLANAGAN - young and scared.
+		flanagan::SID_1613:Quick! Inside!
+	--They dive through the airlock -
+	--As the shark monster hits the glass again.
 	--CUT TO:
-	--INT. POSEIDON. ASSEMBLY HALL -- NIGHT
-	--FLANAGAN leads THE DOCTOR and AMY in - where they find OSWALD FOX and DANA TANAKA at a table covered in plans. Both are fatigued. Fox is sitting, Dana has her hand affectionately on his shoulder as the newcomers arrive. Both are nervous, and surprised as they arrive. But it's a happy reunion with Flanagan.
-		flanagan::SID_1629:Oswald. Dana.
-		dana::SID_1630:Martin!
-		--oswald::SID_1631:We thought you'd been killed. It's been two days.
-		--XMAS
-		oswald::SID_1631:We thought you'd been killed. Merry Christmas, for what it’s worth.	
-	--And Oswald embraces Flanagan warmly. Flanagan grieves.
-		doctor::SID_1632:When you put Poseidon into quarantine Jones wouldn't let Martin through.
-		doctor::SID_1633:But that's going to happen if you have a Cyber Class 14 system with a Nexus Prime processor doing the work of... well, a 1984 PC.
-		doctor::SID_1634:Like putting Einstein on a supermarket check-out. Going to get grumpy and play up. 
-		oswald::SID_1635:Who are you?
-		flanagan::SID_1636:He's a doctor. There's a hospital ship up top. 
-		doctor::SID_1637:But there isn't any hospital ship. You don't need a hospital ship - you've got me! You couldn't wish for a better Christmas present!
-		--The Doctor, actually. And there isn't any hospital ship. You don't need one... you've got me!
-		amy::SID_1638:Erm... and I'm Amy... just Amy.
-	--The Doctor examines Oswald's eyes -
-		doctor::SID_1639:You're not looking too good, Ozzie.
-	--Oswald pushes the Doctor away.
-		oswald::SID_1640:Get away from me! 
-		dana::SID_1641:He's just trying to help.
-		doctor::SID_1642:Bingo! Well observed. Who are you?
-		dana::SID_1643:Dana Tanaka. I'm the Poseidon medic. The sickness kills off the red blood cells. It doesn't respond to anything. We've confined non-essential crew to their quarters. 
-		oswald::SID_1644:If he's not from a hospital ship where did he come from? There's too much weird stuff going on around here. 
-	--Around them the lights flicker with a buzz. Dana and Oswald tense. He holds her to him. They're clearly terrified.
-		flanagan::SID_1645:The lights!
-	--The lights flicker again - Oswald and Dana flash frightened looks around them.
-		doctor::SID_1646:What are you scared of? It's not just the sickness, is it?
-		dana::SID_1647:They hide in the shadows. They come in the dark.
-		amy::SID_1648:What does?
-	--As the lights come on - and Flanagan has been reduced to bones in a boiler suit on the floor!
-	--The Doctor sees -
-		doctor::SID_1649:Vashta Nerada!
-		dana::SID_1650:Martin!
-	--Amy's eyes are wide, incredulous and horrified.
-		amy::SID_1651:What... what happened to him?
-		doctor::SID_1652:Carnivorous photo-organisms that live in the dark. Like schools of piranha fish swimming in shadows. 
-		amy::SID_1653:I am never turning the lights off again. Not ever.
-		doctor::SID_1654:The Vashta Nerada on Earth are usually timid. Feed on road kill. But this... down here. This is something else. This is alien.
-		dana::SID_1655:It started with the flash.
-		doctor::SID_1656:Flash? What flash?
-		dana::SID_1657:Two days ago. Lit up the ocean bed. The sickness, that creature, the shadows... it all started then.
-		oswald::SID_1658:I have to evacuate this base.
-		doctor::SID_1659:Good plan. Bad idea. Life pods. Lots of dark corners. Your people will be dead before they reach the surface.
-	--The lights flicker again. 
-		oswald::SID_1660:We're on emergency lighting. It won't last much longer. I've got to get everybody off Poseidon.
-	--The Doctor tosses the sonic screwdriver in the air. Catches it.
-		doctor::SID_1661:Or I fix the Generator. Come on, Amy.
-	--The Doctor fixes Oswald and Dana with a look -
-		doctor::SID_1662:You two... stay out of the shadows. And, forget about the Lifepods.
-
-	--CUT SCENE 5
-	--INT. POSEIDON GENERATOR ROOM. -- NIGHT
-	--THE DOCTOR and AMY walk into the big, dark generator room. They stand in a square of light from the still open gloom - the darkness pressing.
-		amy::SID_1663:Got a quid for the meter?
-		doctor::SID_1664:I can do better than that. Let there be light.
-	--And the Doctor fires the sonic at wall lights - which start to glow, and they move into the generator room. The light isn't bright - but it's enough.
-		doctor::SID_1665:Right, then... let's get to work. 
-	--As they look around...
-		amy::SID_1666:Doctor, what about the TARDIS? 
-		doctor::SID_1667:She'll be all right. That part of the tunnel was sealed off.
-		amy::SID_1668:Yes but there's still a ton of ocean in between us and it.
-		doctor::SID_1669:Yeah, we'll cross that bridge... or flooded tunnel... when we come to it.
-	--As they round a big piece of equipment and come face to face with - A DEEP SEA DIVER. A SKULL staring out from behind its faceplate.
-		doctor::SID_1670:Oh. Hello sailor!
-	--And he starts backing off with Amy. And the DIVER moves slowly towards them.
-		amy::SID_1671:Doctor! It's alive! 
-		doctor::SID_1672:The Vashta Nerada are animating it.
-	--And a noise from behind them - and they turn: three more DIVERS converging on them...
-		doctor::SID_1673:Don't let it touch you! Don't let any of them touch you!
-
-	--CUT SCENE 6
-	--INT. POSEIDON GENERATOR ROOM -- NIGHT
-	--THE DOCTOR and AMY regard the crumpled suits of the DIVERS - the Vashta Nerada having gone.
-		amy::SID_1674:Are they dead?
-		doctor::SID_1675:They were already dead. The Vashta Nerada just hadn't done with them yet. 
-	--He notices the Environmental Status Chip attached to one of the divers' suits. 
-		doctor::SID_1676:Hello. Environment Status Chip. Indicates dangerous radiation. And it's been activated.
-	--He takes the chip.
-		amy::SID_1677:Radiation? This is turning into such a great place. But shouldn't we get this Generator working before the lights go out and the Vashtas hear the dinner bell?
-	--The Doctor smiles, slips the chip into his pocket.
-		doctor::SID_1678:Good point. Come on.
-
-	--CUT SCENE 7
-	--INT. POSEIDON GENERATOR ROOM. -- NIGHT
-	--THE DOCTOR and AMY have the generator running.
-		doctor::SID_1679:Brilliant! Well done, Engineer Pond! Now let's find out what's really going on here.
-		amy::SID_1680:What do you mean... really?
-		doctor::SID_1681:The sickness, the Vashta Nerada, Flipper with the Big Teeth out there... they're all connected.
-		amy::SID_1682:It's that flash of light they all saw, isn't it? 
-	--The Doctor looks at the environment chip again. 
-	--We should change this it makes no sense!!!
-	--EDIT (changed this line as it doesn't make sense) doctor::SID_1683:The answer, Amy Pond, is as cheap as chips. Come on.
-		doctor::SID_1683:Thanks for chipping in Amy. Come on. Jones may know more.
-	--And he leads her along the tunnel.
-
-	--CUT SCENE 7A
-	--INT. POSEIDON. LIFE POD BAY -- NIGHT
-	--OSWALD is running checks on one of the life pods - as DANA comes to find him with THE DOCTOR and DANA.
-		dana::SID_1684:Oswald! The Doctor thinks he can synthesize a cure for the sickness.
-		doctor::SID_1685:Poseidon is guaranteed to have what I need... Sea Sprouts, Brine Oil and Sticky Mushrooms... those are always growing in some damp corner of an undersea base like this.
-		oswald::SID_1686:This is a joke. Right?
-		doctor::SID_1687:You might use Brine Oil to keep your machines going, but it's also full of iodine. 
-		dana::SID_1688:They need the access codes to get onto the agricultural sectors.
-		doctor::SID_1689:And, by the way, I thought I'd told you... trying to get your people off Poseidon in Life Pods will just get them killed.
-	--Oswald is angry - and no time for the Doctor.
-		oswald::SID_1690:So I just twiddle my thumbs while you mess around with some quack-medicine?
-		amy::SID_1691:If you really want to save your people you'll listen to the Doctor! 
-		oswald::SID_1692:And let you go mushroom picking? So you get eaten by those things in the shadows? No way! Enough people have died. No one else, Doctor.
-		oswald::SID_1693:It's too dangerous. We've got one chance and it's these Pods. Now, this is a restricted area... get out!
-		
-	--CUT TO:
-	--INT. POSEIDON. CORRIDOR -- NIGHT
-	--DANA leads THE DOCTOR and AMY out of the lifepod bay.
-		dana::SID_1694:Oswald is a good man.  But so many people have died... he's only trying to do what he thinks is right.
-		amy::SID_1695:Just a shame he's so spectacularly wrong. The Doctor needs those access codes.
-		doctor::SID_1696:There's always plan B.
-	
-	--CUT SCENE 8
-	--INT. POSEIDON. DANA'S LAB -- NIGHT
-	--A spinning centrifuge.
-	--THE DOCTOR stops it - takes out a vial of mixture and holds it to the light.
-		doctor::SID_1697:Sorry all out of sugar lumps.
-	--The Doctor turns - DANA is sitting on an examination couch, looking exhausted. AMY is beside her.
-		dana::SID_1698:Is that witches' brew really going to fix me?
-	--The Doctor hands Dana the mixture.
-		doctor::SID_1699:You'll feel better. I promise.
-		dana::SID_2694:Coughs.
-	--Dana takes the vial and swallows its contents. Coughs. The Doctor laughs.
-		doctor::SID_1700:Got a kick, hasn't it? Yeah, that's the sea worm extract. 
-	--Amy looks disgusted.
-		amy::SID_1701:You have got to be kidding me.
-	--The Doctor gives her a wink.
-		doctor::SID_1702:The Doctor's patented Vortron Radiation Elixir. One hundred per cent effective. Caution... you may grow hair on the palm of your hands.
-		doctor::SID_1703:But, until that happens, I need your help, Dana.
-		dana::SID_1704:With what?
-		doctor::SID_1705:Vortron energy only comes from some sort of dimensional vortex.
-		dana::SID_1706:Are you serious?
-	--The Doctor looks at Amy - well? Dana looks too.
-		amy::SID_1707:He's serious.
-		dana::SID_1708:Just what kind of a doctor are you? Really?
-		doctor::SID_1709:The kind you need. I mean really need. And if I can find the source of the Vortron Energy I can make everything better.
-		amy::SID_1710:And how do we do that?
-		doctor::SID_1711:Does Poseidon have external scanning equipment?
-	--Dana gets up, lead them across to a bank of instruments.
-		dana::SID_1712:Of course. Here.
-	--The Doctor beams.
-		dana::SID_2078:You'll need to configure the Triangulation Units. Just head up to the Bridge to find them.
-
-	--CUT SCENE 9
-	--INT. POSEIDON. DANA'S LAB -- NIGHT
-	--THE DOCTOR regards the image of the shipwreck with awe. DANA and AMY look on, bemused.
-		dana::SID_1713:That's the source of the radiation?
-		amy::SID_1714:But you said Vortron Energy came from some sort of vortex. That's just a shipwreck.
-		doctor::SID_1715:Oh, no no no no no no, Amy Pond.  That is the shipwreck of the USS Eldridge.
-		amy::SID_1716:Yeah. Like that means anything.
-	--And the Doctor is animated with excitement.
-		doctor::SID_1717:The Philadelphia Naval Shipyard, the 28th of October, 1943. Project Rainbow.
-		amy::SID_1718:Nope. Still not getting it.
-		doctor::SID_1719:The US Navy experiments with Einstein's Unified Field Theory to make their warships invisible. Instead they break the laws of trans-dimensional physics.
-		doctor::SID_1720:They open a gateway and the Eldridge travels across the world and back again in the blink of an eye. Every man on board is either killed or goes insane.
-		dana::SID_1721:So what's it doing on the seabed?
-		doctor::SID_1722:My people took steps to stop the experiment.
-		dana::SID_1723:Your people?
-		amy::SID_1724:Time Lords. We'll catch up another time.
-		doctor::SID_1725:The gateway was unstable and the Eldridge disappeared again before they could neutralize it. 
-		amy::SID_1726:And now it's here and the gateway is still open? The Vashta Nerada and that shark-thing... they came through it?
-		doctor::SID_1727:Exactly. And we have to close it.
-	--JONES (V.O.)
-		jones::SID_1728:Attention all crew. Attention. Life Pods are now fully powered. Evacuation Poseidon will commence in thirty minutes.
-		doctor::SID_1729:He's going ahead with it! Those aren't Life Pods your crews will be getting into, Dana. They're coffins. Come on, Amy. We have to stop this!
-	--They turn to leave, and the door opens - revealing OSWALD armed with a harpoon gun -
-		doctor::SID_1730:Oh!
-		
-	--CUT TO:
-	--INT. POSEIDON. ASSEMBLY HALL -- NIGHT
-	--THE DOCTOR and AMY are tied to chairs. OSWALD is there with DANA.
-		oswald::SID_1731:I don't like this, Doctor. But getting these people - getting Dana - off Poseidon is all I care about. Which means making sure you can't interfere.
-	--Dana is desperate.
-		dana::SID_1732:Oswald, he says the Life Pods aren't safe. You have to listen to him!
-		oswald::SID_1733:We've been careful. Believe me, Dana. This way, at least we've got a chance. 
-	--Dana touches Oswald's face. Tender but tormented.
-	--The Doctor makes a decision.
-		doctor::SID_1734:He's right, Dana. It's a chance. 
-	--AMY (confused)
-		amy::SID_1735:Doctor?!
-		doctor::SID_1736:He wants to keep you safe. Go with him.
-	--Oswald guides her away -
-		oswald::SID_1737:I'll be back to get you, Doctor.
-	--And the door closes on them, and Amy turns on the Doctor -
-		amy::SID_1738:What are you playing at?
-	--As the Doctor stands up, his hands free -
-		doctor::SID_2695:Ah ha!
-		amy::SID_1739:And how did you get out of those ropes?
-	--The Doctor sets about untying her -
-		doctor::SID_1740:Harry Houdini. Long story. No time. And arguing about the Pods was just wasting more of it. We need to get to the TARDIS and quickly.
-	--The Doctor is headed for a computer screen -
-		amy::SID_1741:The TARDIS... how?
-		doctor::SID_1742:Jones. Show me the service system layout.
-		
-	--CUT TO:
-	--COMPUTER SCHEMATIC
-	--The Poseidon layout - showing all the glass tunnels - and beneath them, the lines of service trenches.
-		jones::SID_1743:Watertight service trenches run beneath Poseidon.
-		jones::SID_2396:Although seabed tunnels connecting with your craft's sealed location have been destroyed, access is achievable.
-		
-	--CUT TO:
-	--INT. POSEIDON. SUB AQUATIC TUNNEL 2 -- NIGHT
-	--A manhole cover in the floor opens - THE DOCTOR's head pops up - and looks up at THE TARDIS.
-		doctor::SID_1744:Well done, Jones.
+	--INT. POSEIDON. ANTE-CHAMBER -- CONTINUOUS
+	--The airlock shuts behind THE DOCTOR, AMY and FLANAGAN.
+	--THE DOCTOR(indicating)
+		doctor::SID_1614:The Doctor. Amy. You?
+		flanagan::SID_1615:Martin Flanagan. Doctor? Then there's a hospital ship up top? You came down in a bathysphere? 
+		amy::SID_1616:Is that like some newfangled 23rd Century corner bath, only no corners?
+		doctor::SID_1617:She's still getting used to the pressure. 
+		flanagan::SID_1618:Oswald must've got an SOS out. Maybe Jones will let me into Poseidon now there's medical help.
+	--The Doctor is intrigued...
+		doctor::SID_1619:Who needs medical help?
+		flanagan::SID_1620:The sickness. It's taken everyone on the base. Oswald has put the place on lock-down. That's why Jones won't let me in.
+		flanagan::SID_1621:I was working a harvester out on the prairie. That creature attacked us... killed Pat, the base leader. I'm the only survivor.
+		flanagan::SID_1622:And then Jones wouldn't let me in. Because of the quarantine. The creature had knocked out communications. I've been stuck here two days.
+		amy::SID_1623:What kind of idiot is this Jones?
+		flanagan::SID_1624:It's a computer.
 end
 
+global function PerformCutscene3_1()
+	local doctor = GetActor("doctor")
+	local amy = GetActor("amy")
+	local flanagan = GetActor("flanagan")
+	local jones = GetActor("jones")
+
+	--CUT SCENE 3.1
+	--INT. POSEIDON. ANTE-CHAMBER -- NIGHT
+	--The airlock door opens before THE DOCTOR, FLANAGAN and AMY.
+		doctor::SID_1625:Open Sesame. Thanks for your help, Jones.
+		jones::SID_1626:It's been a relief to talk to someone who understands me, Doctor.
+	--Amy grins at the Doctor.
+		amy::SID_1627:Oh, boy. I think you've pulled.
+	--The Doctor gives her a wink.
+		doctor::SID_1628:Well, I can see the attraction.
+end

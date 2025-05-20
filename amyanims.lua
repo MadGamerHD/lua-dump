@@ -17,12 +17,3 @@ global function Point()
 	
 	amy:PlayAnim(amy_point,1,0)
 end
-
-global function Collapse()
-
-	local amy = GetActor("amy")
-	local amy_death = FindNodeByPartialName("Anim_AMY_Death")
-	
-	amy:PlayAnim(amy_death,1,0)
-
-end
