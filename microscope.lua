@@ -1,0 +1,297 @@
+global script_node
+global model
+
+local mode
+local current_player
+local locator = FindNodeByName("loc_microscope")
+
+
+global function InteractMoveFinished()
+	if(current_player == 1) then
+		local doctor=GetActor("doctor")
+		local anim = FindNodeByTag("TheDoctor_Anim_Interact_1m")
+		doctor:SetCallback(script_node, "InteractAnimFinished")
+		doctor:PlayAnim(anim, 1, 0.1)
+		doctor:DisableAnimLoop()
+	else
+		local amy = GetActor("amy")
+		local anim = FindNodeByPartialName("amy_Anim_AMY_Interact1m")
+		amy:SetCallback(script_node, "InteractAnimFinished")
+		amy:PlayAnim(anim, 1, 0.1)
+		amy:DisableAnimLoop()
+	end
+end
+
+
+
+global function Interact()
+	local doctor=GetActor("doctor")
+	local amy=GetActor("amy")
+	SayPrep("skip","")
+	if (FindPlayer():GetName()==doctor:GetName()) then
+		local cybermat_part = FindNodeByName("cybermat_part")
+		if(doctor:IsInventoryItem(cybermat_part)) then
+			doctor:SetTarget(locator)
+			doctor:SetMoveTime(1)
+			doctor:SetBehaviour("move")	
+			--VO
+			--Interacting with microscope, starting minigame tutorial
+			doctor::SID_2443:Let's see if this Microscope works.
+			local MinigameManager = FindManagerByName("EmAdventureGame_MiniGameManager")
+			local NanoMinigame = MinigameManager:GetNanoMiniGame()
+			MinigameManager:SetMiniGameID("MINI_NANO04")
+			NanoMinigame:SetEnvironment(0)
+			NanoMinigame:Tutorial()
+			
+			
+			NanoMinigame:ResetConditions()
+			NanoMinigame:AddDoubleCondition(5,3,4,0,0)
+			NanoMinigame:SetCatalystColour(0,0)
+			NanoMinigame:SetCatalystActive(0,0)
+			NanoMinigame:SetCatalystColour(1,5)
+			NanoMinigame:SetCatalystActive(1,1)
+			NanoMinigame:SetCatalystColour(2,0)
+			NanoMinigame:SetCatalystActive(2,0)
+			NanoMinigame:SetCatalystColour(3,0)
+			NanoMinigame:SetCatalystActive(3,0)
+			NanoMinigame:SetCatalystColour(4,0)
+			NanoMinigame:SetCatalystActive(4,0)
+			NanoMinigame:SetCatalystColour(5,0)
+			NanoMinigame:SetCatalystActive(5,0)
+			NanoMinigame:SetCatalystColour(6,0)
+			NanoMinigame:SetCatalystActive(6,0)
+			NanoMinigame:SetCatalystColour(7,0)
+			NanoMinigame:SetCatalystActive(7,0)
+			NanoMinigame:SetTargetColour(0,0,0)
+			NanoMinigame:SetTargetActive(0,0,0)
+			NanoMinigame:SetTargetVolatile(0,0,0)
+			NanoMinigame:SetTargetColour(0,1,0)
+			NanoMinigame:SetTargetActive(0,1,0)
+			NanoMinigame:SetTargetVolatile(0,1,0)
+			NanoMinigame:SetTargetColour(0,2,0)
+			NanoMinigame:SetTargetActive(0,2,0)
+			NanoMinigame:SetTargetVolatile(0,2,0)
+			NanoMinigame:SetTargetColour(0,3,4)
+			NanoMinigame:SetTargetActive(0,3,1)
+			NanoMinigame:SetTargetVolatile(0,3,0)
+			NanoMinigame:SetTargetColour(0,4,0)
+			NanoMinigame:SetTargetActive(0,4,0)
+			NanoMinigame:SetTargetVolatile(0,4,0)
+			NanoMinigame:SetTargetColour(0,5,0)
+			NanoMinigame:SetTargetActive(0,5,0)
+			NanoMinigame:SetTargetVolatile(0,5,0)
+			NanoMinigame:SetTargetColour(0,6,4)
+			NanoMinigame:SetTargetActive(0,6,1)
+			NanoMinigame:SetTargetVolatile(0,6,0)
+			NanoMinigame:SetTargetColour(0,7,0)
+			NanoMinigame:SetTargetActive(0,7,0)
+			NanoMinigame:SetTargetVolatile(0,7,0)
+			NanoMinigame:SetTargetColour(0,8,4)
+			NanoMinigame:SetTargetActive(0,8,1)
+			NanoMinigame:SetTargetVolatile(0,8,0)
+			NanoMinigame:SetTargetColour(0,9,0)
+			NanoMinigame:SetTargetActive(0,9,0)
+			NanoMinigame:SetTargetVolatile(0,9,0)
+			NanoMinigame:SetTargetColour(0,10,0)
+			NanoMinigame:SetTargetActive(0,10,0)
+			NanoMinigame:SetTargetVolatile(0,10,0)
+			NanoMinigame:SetTargetColour(0,11,4)
+			NanoMinigame:SetTargetActive(0,11,1)
+			NanoMinigame:SetTargetVolatile(0,11,0)
+			NanoMinigame:SetTargetSpeed(0,0.7)
+			NanoMinigame:SetTargetColour(1,0,0)
+			NanoMinigame:SetTargetActive(1,0,0)
+			NanoMinigame:SetTargetVolatile(1,0,0)
+			NanoMinigame:SetTargetColour(1,1,4)
+			NanoMinigame:SetTargetActive(1,1,1)
+			NanoMinigame:SetTargetVolatile(1,1,0)
+			NanoMinigame:SetTargetColour(1,2,0)
+			NanoMinigame:SetTargetActive(1,2,0)
+			NanoMinigame:SetTargetVolatile(1,2,0)
+			NanoMinigame:SetTargetColour(1,3,0)
+			NanoMinigame:SetTargetActive(1,3,0)
+			NanoMinigame:SetTargetVolatile(1,3,0)
+			NanoMinigame:SetTargetColour(1,4,4)
+			NanoMinigame:SetTargetActive(1,4,1)
+			NanoMinigame:SetTargetVolatile(1,4,0)
+			NanoMinigame:SetTargetColour(1,5,0)
+			NanoMinigame:SetTargetActive(1,5,0)
+			NanoMinigame:SetTargetVolatile(1,5,0)
+			NanoMinigame:SetTargetColour(1,6,0)
+			NanoMinigame:SetTargetActive(1,6,0)
+			NanoMinigame:SetTargetVolatile(1,6,0)
+			NanoMinigame:SetTargetColour(1,7,4)
+			NanoMinigame:SetTargetActive(1,7,1)
+			NanoMinigame:SetTargetVolatile(1,7,0)
+			NanoMinigame:SetTargetColour(1,8,0)
+			NanoMinigame:SetTargetActive(1,8,0)
+			NanoMinigame:SetTargetVolatile(1,8,0)
+			NanoMinigame:SetTargetColour(1,9,0)
+			NanoMinigame:SetTargetActive(1,9,0)
+			NanoMinigame:SetTargetVolatile(1,9,0)
+			NanoMinigame:SetTargetColour(1,10,4)
+			NanoMinigame:SetTargetActive(1,10,1)
+			NanoMinigame:SetTargetVolatile(1,10,0)
+			NanoMinigame:SetTargetColour(1,11,0)
+			NanoMinigame:SetTargetActive(1,11,0)
+			NanoMinigame:SetTargetVolatile(1,11,0)
+			NanoMinigame:SetTargetSpeed(1,0.4)
+			
+			
+			
+		
+			MinigameManager:SetCallback(script_node, "SolveRealMinigame")
+			MinigameManager:StartMiniGame(NanoMinigame)
+			
+			
+		else
+			--VO
+			--Interacting with microscope
+			doctor::SID_0853: Professor Meadows needs our help catching a Cybermat for her Serum.
+			doctor:SetBehaviour("pc")
+		end
+	else
+		--VO.
+		--Interacting with microscope
+		amy::SID_0993:It's a Microscope. Like I know how to use a Microscope!
+	end
+end
+			
+global function SolveRealMinigame()
+	local doctor=GetActor("doctor")
+	SayPrep("skip","")
+	--VO
+	--Interacting with microscope, starting minigame
+	doctor::SID_0852: Excellent. It works. Now, to synthesise the Serum...
+	local MinigameManager = FindManagerByName("EmAdventureGame_MiniGameManager")
+	local NanoMinigame = MinigameManager:GetNanoMiniGame()
+	MinigameManager:SetMiniGameID("MINI_NANO01")
+	NanoMinigame:SetEnvironment(0)
+	NanoMinigame:Easy()
+	
+	NanoMinigame:ResetConditions()
+	NanoMinigame:AddDoubleCondition(4,3,2,0,0)
+	NanoMinigame:AddDoubleCondition(3,1,2,0,0)
+	NanoMinigame:SetCatalystColour(0,3)
+	NanoMinigame:SetCatalystActive(0,1)
+	NanoMinigame:SetCatalystColour(1,0)
+	NanoMinigame:SetCatalystActive(1,0)
+	NanoMinigame:SetCatalystColour(2,4)
+	NanoMinigame:SetCatalystActive(2,1)
+	NanoMinigame:SetCatalystColour(3,6)
+	NanoMinigame:SetCatalystActive(3,1)
+	NanoMinigame:SetCatalystColour(4,0)
+	NanoMinigame:SetCatalystActive(4,0)
+	NanoMinigame:SetCatalystColour(5,2)
+	NanoMinigame:SetCatalystActive(5,1)
+	NanoMinigame:SetCatalystColour(6,0)
+	NanoMinigame:SetCatalystActive(6,0)
+	NanoMinigame:SetCatalystColour(7,0)
+	NanoMinigame:SetCatalystActive(7,0)
+	NanoMinigame:SetTargetColour(0,0,0) --
+	NanoMinigame:SetTargetActive(0,0,0)  --
+	NanoMinigame:SetTargetVolatile(0,0,0) --
+	NanoMinigame:SetTargetColour(0,1,1)
+	NanoMinigame:SetTargetActive(0,1,0)
+	NanoMinigame:SetTargetVolatile(0,1,0)
+	NanoMinigame:SetTargetColour(0,2,0)
+	NanoMinigame:SetTargetActive(0,2,0)
+	NanoMinigame:SetTargetVolatile(0,2,0)
+	NanoMinigame:SetTargetColour(0,3,1)
+	NanoMinigame:SetTargetActive(0,3,0)
+	NanoMinigame:SetTargetVolatile(0,3,0)
+	NanoMinigame:SetTargetColour(0,4,0)
+	NanoMinigame:SetTargetActive(0,4,0)
+	NanoMinigame:SetTargetVolatile(0,4,0)
+	NanoMinigame:SetTargetColour(0,5,6)
+	NanoMinigame:SetTargetActive(0,5,1)
+	NanoMinigame:SetTargetVolatile(0,5,0)
+	NanoMinigame:SetTargetColour(0,6,6)
+	NanoMinigame:SetTargetActive(0,6,1)
+	NanoMinigame:SetTargetVolatile(0,6,0)
+	NanoMinigame:SetTargetColour(0,7,0)
+	NanoMinigame:SetTargetActive(0,7,0)
+	NanoMinigame:SetTargetVolatile(0,7,0)
+	NanoMinigame:SetTargetColour(0,8,4)
+	NanoMinigame:SetTargetActive(0,8,1)
+	NanoMinigame:SetTargetVolatile(0,8,0)
+	NanoMinigame:SetTargetColour(0,9,0)
+	NanoMinigame:SetTargetActive(0,9,0)
+	NanoMinigame:SetTargetVolatile(0,9,0)
+	NanoMinigame:SetTargetColour(0,10,0)
+	NanoMinigame:SetTargetActive(0,10,0)
+	NanoMinigame:SetTargetVolatile(0,10,0)
+	NanoMinigame:SetTargetColour(0,11,6)
+	NanoMinigame:SetTargetActive(0,11,0)
+	NanoMinigame:SetTargetVolatile(0,11,0)
+	NanoMinigame:SetTargetSpeed(0,0.9)
+	NanoMinigame:SetTargetColour(1,0,0)
+	NanoMinigame:SetTargetActive(1,0,0)
+	NanoMinigame:SetTargetVolatile(1,0,0)
+	NanoMinigame:SetTargetColour(1,1,0)
+	NanoMinigame:SetTargetActive(1,1,0)
+	NanoMinigame:SetTargetVolatile(1,1,0)
+	NanoMinigame:SetTargetColour(1,2,2)
+	NanoMinigame:SetTargetActive(1,2,1)
+	NanoMinigame:SetTargetVolatile(1,2,0)
+	NanoMinigame:SetTargetColour(1,3,0)
+	NanoMinigame:SetTargetActive(1,3,0)
+	NanoMinigame:SetTargetVolatile(1,3,0)
+	NanoMinigame:SetTargetColour(1,4,2)
+	NanoMinigame:SetTargetActive(1,4,1)
+	NanoMinigame:SetTargetVolatile(1,4,0)
+	NanoMinigame:SetTargetColour(1,5,0)
+	NanoMinigame:SetTargetActive(1,5,0)
+	NanoMinigame:SetTargetVolatile(1,5,0)
+	NanoMinigame:SetTargetColour(1,6,2)
+	NanoMinigame:SetTargetActive(1,6,1)
+	NanoMinigame:SetTargetVolatile(1,6,0)
+	NanoMinigame:SetTargetColour(1,7,0)
+	NanoMinigame:SetTargetActive(1,7,0)
+	NanoMinigame:SetTargetVolatile(1,7,0)
+	NanoMinigame:SetTargetColour(1,8,2)
+	NanoMinigame:SetTargetActive(1,8,1)
+	NanoMinigame:SetTargetVolatile(1,8,0)
+	NanoMinigame:SetTargetColour(1,9,0)
+	NanoMinigame:SetTargetActive(1,9,0)
+	NanoMinigame:SetTargetVolatile(1,9,0)
+	NanoMinigame:SetTargetColour(1,10,3)
+	NanoMinigame:SetTargetActive(1,10,0)
+	NanoMinigame:SetTargetVolatile(1,10,0)
+	NanoMinigame:SetTargetColour(1,11,2)
+	NanoMinigame:SetTargetActive(1,11,1)
+	NanoMinigame:SetTargetVolatile(1,11,0)
+	NanoMinigame:SetTargetSpeed(1,0.4)
+
+	MinigameManager:SetCallback(script_node, "Run_cutscene")
+	MinigameManager:StartMiniGame(NanoMinigame)
+end
+
+global function Use()
+	local doctor=GetActor("doctor")
+	local cybermat_part = FindNodeByName("cybermat_part")
+	if doctor:IsUsingInventoryItem(cybermat_part) then
+		Interact()
+	else
+		FindNodeByName("common_scripts").script.RandomRefusal()	 
+	end
+end
+
+global function Run_cutscene()
+	local doctor=GetActor("doctor")
+	local cybermat_part = FindNodeByName("cybermat_part")
+	doctor:RemoveInventoryItem(cybermat_part)
+	--add serum
+	doctor:AddInventoryItem(script_node:FindInventoryItem())
+	local cutscene = FindNodeByName("success_created_cure_CS8_3")
+	local microscope = FindNodeByName("int_microscope")
+	cutscene:Trigger()
+	microscope:StopTrigger()
+end
+
+global function Trigger()
+	local doctor=GetActor("doctor")
+	local cybermat_part = FindNodeByName("cybermat_part")
+	doctor:AddInventoryItem(cybermat_part)
+	Interact()
+end
