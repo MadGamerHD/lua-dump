@@ -1,11 +1,25 @@
 global script_node
-global function Interact()
 
-	local prop = script_node:FindProp()
-	local open = script_node:FindNodeByTag("open")
-	local int = script_node:FindNodeByTag("int")
-	
-	prop:Move(open,1,"sine")
-	int:StopTrigger()
+global function Hint()
+	local amy = GetActor("amy")
+	local hint = QueryObjective(0)                 
+	local doctor = GetActor("doctor")
+
+	if (FindNodeByName("CommonScripts").script.DoctorIsPlayer()) then
+		--VO
+		--The Doctor tries to use the TARDIS door
+		doctor::SID_1801:I'm not going out there again!
+	else
+		--VO Amy examines door in act 2.
+		amy::SID_2461:Locked, can't open it.
+	end
 
 end
+
+global function Interact()
+	Hint()
+end
+
+global function Use()
+end
+

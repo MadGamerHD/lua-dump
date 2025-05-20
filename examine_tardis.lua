@@ -1,10 +1,14 @@
 global model
 global function Interact()
-	print ("examine tardis","\n")
 	local doctor = GetActor("doctor")
-		
 	SayPrep("skip", "")
 	--VO
 	--Examine TARDIS
-		doctor::SID_0498:There's no time to waste. We have to find that woman.
+		doctor::SID_0935:There's more for us to to do right now. 
+end
+
+
+global function Use()
+
+
 end

@@ -1,12 +1,16 @@
 global function Trigger()
 	local doctor = GetActor("doctor")
 	local amy = GetActor("amy")
-	local dalek = GetActor("dalek")	
-	local patrol1 = FindNodeByName("patrol1")
-					
+	local amy_script = FindNodeByName("amy_startup_0")
+	local dalek_script = FindNodeByName("DalekSensors_0")
+		
+	print("Enter Stealth","\n")
+
 	doctor:EnableStealth()
-	amy:EnableStealth()
 	
-	dalek:SetSpline(patrol1)
-	dalek:SetBehaviour("patrol")
+	if (amy_script.script.AmyState == 0) then
+		amy:EnableStealth()
+	end
+	
+	dalek_script.script.EnableSensors()
 end
