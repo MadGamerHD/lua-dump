@@ -1,0 +1,11 @@
+global function Interact()
+	--local walk = FindNodeByTag("TheDoctor_Anim_Walk")
+	--local climb = FindNodeByTag("TheDoctor_Anim_ClimbUp_1m")
+	local loc = FindNodeByName("loc_jump2")
+	local doctor = GetActor("doctor")
+	doctor:SetBehaviour("wait")
+	doctor:DisablePhysics()
+	doctor:Teleport(loc)
+	doctor:EnablePhysics()
+	doctor:SetBehaviour("pc")
+end
